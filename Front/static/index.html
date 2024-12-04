@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classification</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Classify Music Genre</h1>
+        <input type="file" id="musicFile" accept=".wav">
+        <button onclick="submitFile()">Classify Genre with SVM</button>
+        <button onclick="submitFile_VGG19()">Classify Genre with VGG19</button>
+        <div id="loading" class="loading-circle" style="display: none;"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="scripts.js"></script>  <!-- Link to the JavaScript file -->
+</body>
+</html>
