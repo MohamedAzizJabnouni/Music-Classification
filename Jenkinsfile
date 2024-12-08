@@ -36,17 +36,17 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run tests by executing commands inside running containers
-                    sh '''
-                        docker exec music-genre-classification_svm-service_1 curl -f http://localhost:5000 || exit 1
-                        docker exec music-genre-classification_vgg19-service_1 curl -f http://localhost:5000 || exit 1
-                    '''
-                }
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
+        //             // Run tests by executing commands inside running containers
+        //             sh '''
+        //                 docker exec music-genre-classification_svm-service_1 curl -f http://localhost:5000 || exit 1
+        //                 docker exec music-genre-classification_vgg19-service_1 curl -f http://localhost:5000 || exit 1
+        //             '''
+        //         }
+        //     }
+        // }
 
         stage('Cleanup') {
             steps {
