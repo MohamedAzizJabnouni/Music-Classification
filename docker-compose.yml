@@ -1,0 +1,38 @@
+version: '3.8'
+
+name: music-genre-classification_2001  # Set the project name here
+
+services:
+  front-end:
+    build:
+      context: ./Front  # Path to the frontend's build context
+    image: front_image  # Explicit name for the frontend image
+    ports:
+      - "80:80"  # Assuming frontend runs on port 80
+    networks:
+      - app-network
+    depends_on:
+      - svm-service
+      - vgg19-service
+
+  svm-service:
+    build:
+      context: ./SVM  # Path to the SVM service's build context
+    image: svm_image  # Explicit name for the SVM service image
+    ports:
+      - "5000:5000"  # Map port 5000 of container to 5000 on host
+    networks:
+      - app-network
+
+  vgg19-service:
+    build:
+      context: ./VGG19  # Path to the VGG19 service's build context
+    image: vgg_image  # Explicit name for the VGG19 service image
+    ports:
+      - "3000:5000"  # Map port 5000 of container to port 3000 on host
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
