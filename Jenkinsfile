@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Pull the latest code from your GitHub repository
-                git 'https://github.com/MohamedAzizJabnouni/Music-Classification.git'  // Public GitHub repository URL
+                git 'https://github.com/DhimiMohamed/music-classification.git'  // Public GitHub repository URL
             }
         }
 
